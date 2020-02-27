@@ -81,4 +81,50 @@ As the name sounds, this is the exposure of sensitive user data stored in a data
 + Make sure all sensitive data are encrypted when at rest.
 + Ensure upto date and strong standard algorithms, protocols and keys are in place; use proper key management.
 
-# XML external entities (XXE)
+## XML external entities (XXE)
+
+An application is vulnerable to XXE attacks if it allows malicious XML uploads which can exploit vulnerable code and/or app dependencies. Most XML parsers are vulnerable by default.
+
+### XXE Main attack vectors include:
+
++ The exploitation of vulnerable XML processors if malicious actors can upload XML.
++ Inclusion of hostile content in an XML document.
++ The exploitation of vulnerable code
++ The exploitation of vulnerable dependencies.
++ The exploitation of vulnerable integrations.
+
+### XXE Mitigation methods
+
++ Whenever possinle use less complex data formats such as JSON and avoid serialization of sensitive data.
++ Patch or upgrade all XML processors and libraries in use by the application or on the underlying operating system.
++ Use dependency checkers
++ Disable XML external entity and DTD processing in all XML parsers inn the application, as per the OWASP Cheat Sheet XXE Prevention
++ Implement positive ("Whitelisting") server-side input validatio, filtering or sanitisation to prevent hostile data within XML documents, headers or nodes.
++ Verify thst XML or XSL file upload functinality validates incoming XML using XSD vaildation or similar
+
+## Broken Acess Control
+
+Access control means putting a limit to what and what a user has access to, in webdev-speak this can be pages or sections, specific information or data. Authorization is the process where requests to access a particular resource should be granted or denied.
+
+### Common access control vulnerabilities include:
+
++ Bypassing access control by modifying the URL, internal application state, or the HTML page, or simply using a custom API attack tool
++ Allowing primary key to be changed to another user's record, permitting viewing or editing of someone else's account.
++ Elevation of privilege. AActing as a user being logged in, or acting as an admin when logged in as a user.
++ Metadata manipulation, such as replayin or tampering with the JWT access control token or a cookie or hidden field manipulated to elevate privilege or abusing JWT invalidation
++ CORS misconfiguration allows unathorized API access.
++ Force browsing to authenticated pages as an unauthenticated user or privileged pages as a standard user.
+
+### Broken Access Control Mitigation techniques
+
++ Employ the principle of least privilege
++ Get rid of accounts you don't need.
++ Audit your servers and websites - who is doing what, and why.
++ If possible, apply multi-factor authentication to all access points.
++ Disable acces points until they are needed in order to reduce your access windows.
++ Remove unecessary services off your server.
++ Verify applications that are externerlly accessible versus applicationa that are tied to your network.
++ If you are deeloping a web application, bear in mind that a production box should not be the place to develop, test, or push updates without testing.
++ Access controls should also enforce record ownership not just read, update, create, delete any record.
+
+## Security Misconfigurations
