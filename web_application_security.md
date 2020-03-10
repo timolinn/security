@@ -128,3 +128,37 @@ Access control means putting a limit to what and what a user has access to, in w
 + Access controls should also enforce record ownership not just read, update, create, delete any record.
 
 ## Security Misconfigurations
+
+Security misconfiguration arises when secure configuration is not well defined and deployed for an application, web server, database server and platforms. Security misconfiguration can happen at **any level** of an application stack.
+
+### Known practices that may lead security misconfiguration
+
++ Missing appropriate **security hardening** across any part of the application stack, or imporperly configured permissions on cloud services.
++ Unnecessary features are enbled or installed (eg. unnecessary ports, services, pages accounts, or privileges)
++ Default aacounts and their accounts still enabled and unchanged.
++ Error handling reveals stack traces or other overly informative error messages to users.
++ For upgraded systems, the latest security features are disabled or not configured securely.
++ The security settings in the application servers, application frameworks (eg. Spring, Django, ASP.NET), libraries, databases, etc. not set to secure values.
++ The server does not send security headers or directives or they are not set to secure values.
++ The software is out of date or vulnerable.
+
+## Loopholes hackers try to exploit in order to gain unauthorized access include
+
++ Unpatched flaws
++ default configurations
++ Unused pages
++ Unprotected files and directories
++ Unnecessary services
+
+## Cross-Site Scripting (XSS)
+
+Three types of XSS include:
+
++ Refelcted XSS
++ Stored XSS
++ DOM-Based XSS
+
+### XSS Mitigation Techniques
+
++ Use frameworks that automatically eacape XSS by design eg. ReactJS, RUby onRails
++ Escaping untrusted HTTP request data based on the context in the HTML output will resolve Reflected and Stored XSS vulnerabilities.
